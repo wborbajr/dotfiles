@@ -29,7 +29,10 @@ endif
 "
 call plug#begin(expand('~/.config/nvim/plugged'))
 
-Plug 'morhetz/gruvbox'
+" Color-schemes
+    Plug 'morhetz/gruvbox' "My favorite theme
+    Plug 'dracula/vim', { 'as': 'dracula' }
+    Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'dense-analysis/ale'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
@@ -77,8 +80,7 @@ set fileencodings=utf-8
 set langmenu=en_US.UTF-8
 language messages en_US
 
-set nobackup
-set noswapfile
+set nobackup nowritebackup noswapfile
 
 set updatetime=200
 set timeoutlen=100
@@ -91,6 +93,22 @@ set showmatch
 
 set history=200
 set ttyfast
+
+"Status-line
+"set statusline=
+"set statusline+=%#IncSearch#
+"set statusline+=\ %y
+"set statusline+=\ %r
+"set statusline+=%#CursorLineNr#
+"set statusline+=\ %F
+"set statusline+=%= "Right side settings
+"set statusline+=%#Search#
+"set statusline+=\ %l/%L
+"set statusline+=\ [%c]
+
+set background=dark cursorline termguicolors
+
+set cursorline
 
 "----
 
@@ -132,6 +150,7 @@ autocmd FileType md,markdown,txt setlocal spell spelllang=en_us
 autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
 " Create your own private dictionary
  set spell spelllang=en_us
+ set spell
 
 syntax on
 set ruler
@@ -212,6 +231,12 @@ let g:webdevicons_enable_airline_tabline = 1
 """""""""""""""""""""""""KEY MAPPING""""""""""""""""""""
 "
 
+map <F1> :colorscheme gruvbox<CR>
+map <F2> :colorscheme dracula<CR>
+map <F3> :colorscheme onehalflight<CR>
+map <F4> :set background=dark<CR>
+map <F5> :set background=light<CR>
+
 
 "" Split
 noremap <Leader>h :<C-u>split<CR>
@@ -278,8 +303,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical"
 
 " Tagbar
-nmap <silent> <F4> :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
+"nmap <silent> <F4> :TagbarToggle<CR>
+"let g:tagbar_autofocus = 1
 
 " Disable visualbell
 set noerrorbells visualbell t_vb=

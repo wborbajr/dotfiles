@@ -5,6 +5,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
+syntax enable
 syntax on
 
 " The following are commented out as they cause vim to behave a lot
@@ -286,7 +287,14 @@ function! s:check_back_space() abort
 endfunction
 
 autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport') " autoimport go
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=3 shiftwidth=3 softtabstop=3
 
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> rn <Plug>(coc-rename)
+nmap <silent> gy <Plug>(coc-type-definition)
 
 
 " Use <c-space> to trigger completion.

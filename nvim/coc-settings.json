@@ -1,20 +1,16 @@
 {
-"diagnostic.errorSign": "✖",
-    "diagnostic.warningSign": "⚠",
-    "diagnostic.infoSign": "ℹ",
-    "diagnostic.hintSign": "➤",
-    "diagnostic.checkCurrentLine": true,
-    "suggest.floatEnable": false,
+   "diagnostic.errorSign": "✖",
+   "diagnostic.warningSign": "⚠",
+   "diagnostic.infoSign": "ℹ",
+   "diagnostic.hintSign": "➤",
+   "diagnostic.checkCurrentLine": true,
+   "suggest.floatEnable": false,
    "coc.preferences.extensionUpdateCheck": "daily",
-"languageserver": {
+   "languageserver": {
         "golang": {
             "command": "gopls",
-            "args": ["-remote=auto"],
             "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
             "filetypes": ["go"]
         }
-    },
-    "go.goplsOptions": {
-        "go.goplsOptions": ["-remote=auto"]
-  }
+    }
 }

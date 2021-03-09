@@ -115,14 +115,14 @@ map <F3> :set background=dark<CR>
 map <F4> :set background=light<CR>
 
 " change the leader key from "\" to ";" ("," is also popular)
-let mapleader=" "
+let mapleader=";"
 
 noremap <leader>/ :Commentary<CR>
 
 " navigate between errors
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
+"map <C-n> :cnext<CR>
+"map <C-m> :cprevious<CR>
+"nnoremap <leader>a :cclose<CR>
 
 " select file in NERDTree
 nnoremap <silent> <leader>nf :NERDTreeFind<CR>
@@ -159,17 +159,20 @@ nnoremap <C-l> :bn<CR>
 
 " go to previous buffer
 nnoremap <silent> <leader>bp :bp<CR>
+
 " https://github.com/neovim/neovim/issues/2048
 nnoremap <C-h> :bp<CR>
 
 " close buffer
 nnoremap <silent> <leader>bd :bd<CR>
+nnoremap <C-x> :bd<CR>
 
 " kill buffer
 nnoremap <silent> <leader>bk :bd!<CR>
 
 " list buffers
 nnoremap <silent> <leader>bl :ls<CR>
+
 " list and select buffer
 nnoremap <silent> <leader>bg :ls<CR>:buffer<Space>
 
@@ -181,7 +184,7 @@ nnoremap <silent> <leader>bv :vnew<CR>
 
 " redraw screan and clear search highlighted items
 "http://stackoverflow.com/questions/657447/vim-clear-last-search-highlighting#answer-25569434
-nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+"nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 " improved keyboard navigation
 nnoremap <leader>h <C-w>h
@@ -231,8 +234,8 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
 
+let g:airline_theme='gruvbox'
 
-let g:airline_theme='monochrome'
 
 " CONFIGURE NERD TREE FUNCTIONS
 let s:hidden_all = 0
@@ -266,7 +269,6 @@ endfunction
 nnoremap <silent> <leader>h :call ToggleHiddenAll()<CR>
 
 
-
 " COC
 " improve CoC usage
 set nobackup
@@ -275,16 +277,21 @@ set hidden
 set cmdheight=2
 set updatetime=50
 set shortmess+=c
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+
+" customize the autocomplete
+au filetype go inoremap <buffer> . .<C-x><C-o>
+:set completeopt=longest,menuone
+:inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" The above mapping will change the behavior of the <Enter> key when the popup 
+" menu is visible. In that case the Enter key will simply select the 
+" highlighted menu item, just as <C-Y> does.
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
 
 autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport') " autoimport go
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=3 shiftwidth=3 softtabstop=3
@@ -304,28 +311,6 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-"if exists('*complete_info')
-"  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-"else
-"  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-"endif
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-
-" Use <Tab> and <S-Tab> to navigate the completion list:
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " (status) Airliner
 let g:airline_theme='powerlineish'
@@ -370,10 +355,10 @@ set expandtab
 " moving
 "
 " Mover no modo insert sem as setas
-inoremap <C-b> <left>
-inoremap <C-j> <down>
-inoremap <C-k> <up>
-inoremap <C-l> <right>
+"inoremap <C-b> <left>
+"inoremap <C-j> <down>
+"inoremap <C-k> <up>
+"inoremap <C-l> <right>
 
 
 "
@@ -387,9 +372,13 @@ let g:session_autosave = "no"
 let g:session_command_aliases = 1
 let g:startify_session_dir = "~/.config/nvim/session"
 
-'
-
 
 "Plug 'dense-analysis/ale'
 "Plug 'ekalinin/Dockerfile.vim'
 Plug 'tpope/vim-commentary'
+
+
+" Auto Pairs"
+Plug 'jiangmiao/auto-pairs'
+
+

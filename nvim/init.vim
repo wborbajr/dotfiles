@@ -40,14 +40,14 @@ colorscheme gruvbox
 
 function! Light()
     echom "set bg=light"
-    set bg=light
+    set background=light
     "colorscheme off
     set list
 endfunction
 
 function! Dark()
     echom "set bg=dark"
-    set bg=dark
+    set background=dark
     colorscheme gruvbox
     "darcula fix to hide the indents:
     "set nolist

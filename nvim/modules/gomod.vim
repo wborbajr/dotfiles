@@ -5,7 +5,8 @@
 
 "
 " Installs Golang support for vim (syntax, build and debug)
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'tag': '*' }
 
 " >> configuring vim-go > https://github.com/fatih/vim-go
 " =====================================

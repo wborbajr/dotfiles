@@ -70,6 +70,21 @@ set confirm
 set autowriteall
 set wildmenu wildmode=full
 
+set undodir=$HOME/.config/nvim/undodir
+set undofile
+
+set nobackup
+set nowritebackup
+set hidden
+set cmdheight=2
+set updatetime=50
+set shortmess+=c
+
+set colorcolumn=120
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+
+
+
 " use just one list of errors: quickfix
 let g:go_list_type = "quickfix"
 
@@ -115,7 +130,7 @@ map <F3> :set background=dark<CR>
 map <F4> :set background=light<CR>
 
 " change the leader key from "\" to ";" ("," is also popular)
-let mapleader=";"
+let mapleader=" "
 
 noremap <leader>/ :Commentary<CR>
 
@@ -140,9 +155,6 @@ nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
 "nnoremap <C-Space> :NERDTreeToggle<CR>
 "nmap <C-@> <C-Space>
 nnoremap <silent> <Space> :NERDTreeToggle<CR>
-
-" toggle tagbar
-nnoremap <silent> <leader>tb :TagbarToggle<CR>
 
 " toggle line numbers
 nnoremap <silent> <leader>n :set number! number?<CR>
@@ -269,46 +281,6 @@ endfunction
 nnoremap <silent> <leader>h :call ToggleHiddenAll()<CR>
 
 
-" COC
-" improve CoC usage
-set nobackup
-set nowritebackup
-set hidden
-set cmdheight=2
-set updatetime=50
-set shortmess+=c
-
-
-" customize the autocomplete
-au filetype go inoremap <buffer> . .<C-x><C-o>
-:set completeopt=longest,menuone
-:inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" The above mapping will change the behavior of the <Enter> key when the popup 
-" menu is visible. In that case the Enter key will simply select the 
-" highlighted menu item, just as <C-Y> does.
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-" Coc
-" autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport') " autoimport go
-
-"nmap <silent> gd <Plug>(coc-definition)
-"nmap <silent> gr <Plug>(coc-references)
-"nmap <silent> gi <Plug>(coc-implementation)
-"nmap <silent> rn <Plug>(coc-rename)
-"nmap <silent> gy <Plug>(coc-type-definition)
-
-
-" Use <c-space> to trigger completion.
-"if has('nvim')
-""  inoremap <silent><expr> <c-space> coc#refresh()
-"else
-""  inoremap <silent><expr> <c-@> coc#refresh()
-"endif
-
 
 " (status) Airliner
 let g:airline_theme='powerlineish'
@@ -378,5 +350,18 @@ Plug 'tpope/vim-commentary'
 
 " Auto Pairs"
 Plug 'jiangmiao/auto-pairs'
+
+
+let g:netrw_browse_split=2
+let g:netrw_banner=0
+let g:netrw_winsize=25
+
+let g:ctrlp_use_caching=0
+
+"nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+"nnoremap <silent> <Leader>+ :vertical resize +5<CR>
+"nnoremap <silent> <Leader>- :vertical resize -5<CR>
+nnoremap <Leader>u :UndotreeShow<CR>
+
 
 

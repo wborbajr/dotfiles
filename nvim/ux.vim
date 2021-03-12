@@ -292,24 +292,22 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
+" Coc
+" autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport') " autoimport go
 
-autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport') " autoimport go
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=3 shiftwidth=3 softtabstop=3
-
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> rn <Plug>(coc-rename)
-nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gr <Plug>(coc-references)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> rn <Plug>(coc-rename)
+"nmap <silent> gy <Plug>(coc-type-definition)
 
 
 " Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+"if has('nvim')
+""  inoremap <silent><expr> <c-space> coc#refresh()
+"else
+""  inoremap <silent><expr> <c-@> coc#refresh()
+"endif
 
 
 " (status) Airliner

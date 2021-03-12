@@ -16,4 +16,4 @@ Plug 'preservim/nerdtree' |
   \ Plug 'ryanoasis/vim-devicons'
 
 " Languages Support Plugin
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}

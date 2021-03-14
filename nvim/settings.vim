@@ -48,3 +48,6 @@ filetype indent on
 
 " change the leader key from "\" to ";" ("," is also popular)
 let mapleader=" "
+
+" ctrlp
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']

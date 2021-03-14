@@ -9,6 +9,7 @@
 " REFs
 " https://github.com/carlosd-ss/dotfiles
 " https://gist.github.com/benawad/b768f5a5bbd92c8baabd363b7e79786f
+" https://www.youtube.com/watch?v=gnupOrSEikQ
 
 
 source $HOME/.config/nvim/plugins.vim
@@ -18,7 +19,7 @@ source $HOME/.config/nvim/modules/vimgo.vim
 source $HOME/.config/nvim/modules/nerdtree.vim
 source $HOME/.config/nvim/modules/airline.vim
 source $HOME/.config/nvim/modules/fzf.vim
-source $HOME/.config/nvim/modules/commentary.vim
+"source $HOME/.config/nvim/modules/commentary.vim
 source $HOME/.config/nvim/modules/coc.vim
 source $HOME/.config/nvim/modules/linter.vim
 

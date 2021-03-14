@@ -27,7 +27,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 	Plug 'junegunn/fzf.vim'
 	
 	" Commentary
-	Plug 'tpope/vim-commentary'
+	"Plug 'tpope/vim-commentary'
 
 	" Startify
 	Plug 'mhinz/vim-startify'
@@ -40,11 +40,16 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 	Plug 'sainnhe/gruvbox-material'
 	Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
+	" fuzzy find files
+	Plug 'ctrlpvim/ctrlp.vim' 
+
 	" NERD Tree
 	Plug 'scrooloose/nerdcommenter'
 	Plug 'preservim/nerdtree' |
 	  \ Plug 'Xuyuanp/nerdtree-git-plugin' |
-	  \ Plug 'ryanoasis/vim-devicons'
+	  \ Plug 'ryanoasis/vim-devicons' |
+	  \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' |
+		Plug 'airblade/vim-gitgutter'
 
 	" Languages Support Plugin
 	"Plug 'neoclide/coc.nvim', {'branch': 'release'}

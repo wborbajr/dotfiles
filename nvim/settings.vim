@@ -39,6 +39,8 @@ set shiftwidth=3
 set expandtab
 set signcolumn=yes
 
+set mouse=a
+
 
 
 highlight ColorColumn ctermbg=0 guibg=lightgrey

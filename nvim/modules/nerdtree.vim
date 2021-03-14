@@ -19,8 +19,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " Toggle NERDTree
 nnoremap <silent> <C-b> :NERDTreeToggle<CR>
-vmap <C-c><C-c> <plug>NERDCommenterToggle
-nmap <C-c><C-c> <plug>NERDCommenterToggle
+vmap ++ <plug>NERDCommenterToggle
+nmap ++ <plug>NERDCommenterToggle
 
 " select file in NERDTree
 nnoremap <silent> <leader>nf :NERDTreeFind<CR>

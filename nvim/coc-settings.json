@@ -1,17 +1,36 @@
 {
-	fmt.
-   "diagnostic.errorSign": "✖",
-   "diagnostic.warningSign": "⚠",
-   "diagnostic.infoSign": "ℹ",
-   "diagnostic.hintSign": "➤",
-   "diagnostic.checkCurrentLine": true,
-   "suggest.floatEnable": false,
-   "coc.preferences.extensionUpdateCheck": "daily",
-   "languageserver": {
-        "golang": {
-            "command": "gopls",
-            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-            "filetypes": ["go"]
-        }
+  "suggest.noselect": false,
+  "diagnostic.errorSign": "✖",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": "ℹ",
+  "diagnostic.hintSign": "➤",
+  "suggest.autoTrigger": "always",
+  "suggest.timeout": 500,
+  "diagnostic.checkCurrentLine": true,
+  "suggest.floatEnable": true,
+  "suggest.enablePreview": false,
+  "coc.preferences.hoverTarget": "float",
+  "codeLens.enable": true,
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "args": [],
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "gocodeCompletionEnabled": true,
+        "diagnosticsEnabled": true,
+        "lintTool": "golint",
+        "usePlaceholders": true
+      }
     }
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "go",
+    "json",
+    "graphql",
+    "pyhton",
+    "markdown"
+  ]
 }

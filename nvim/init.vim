@@ -6,37 +6,26 @@
 "
 " version 1.0.0
 "
+" REFs
+" https://github.com/carlosd-ss/dotfiles
+" https://gist.github.com/benawad/b768f5a5bbd92c8baabd363b7e79786f
 
-let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
-let curl_exists=expand('curl')
 
-if !filereadable(vimplug_exists)
-  if !executable(curl_exists)
-    echoerr "You have to install curl or first install vim-plug yourself!"
-    execute "q!"
-  endif
-  echo "Installing Vim-Plug..."
-  echo ""
-  silent exec "!"curl_exists" -fLo " . shellescape(vimplug_exists) . " --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  let g:not_finish_vimplug = "yes"
-
-  autocmd VimEnter * PlugInstall --sync
-endif
-
-" Initialize plugin system
-"
-call plug#begin(expand('~/.config/nvim/plugged'))
-	source $HOME/.config/nvim/infra.vim
-	source $HOME/.config/nvim/ux.vim	
-
-	source $HOME/.config/nvim/modules/gomod.vim
-	source $HOME/.config/nvim/modules/goux.vim
-
-call plug#end()
+source $HOME/.config/nvim/plugins.vim
+source $HOME/.config/nvim/settings.vim
+source $HOME/.config/nvim/keymap.vim  
+source $HOME/.config/nvim/modules/vimgo.vim
+source $HOME/.config/nvim/modules/nerdtree.vim
+source $HOME/.config/nvim/modules/airline.vim
+source $HOME/.config/nvim/modules/fzf.vim
+source $HOME/.config/nvim/modules/commentary.vim
+source $HOME/.config/nvim/modules/coc.vim
+source $HOME/.config/nvim/modules/linter.vim
 
 
 " CONFIGURE theme gruvbox
-colorscheme gruvbox
+
+
 
 function! Light()
     echom "set bg=light"
@@ -47,8 +36,16 @@ endfunction
 
 function! Dark()
     echom "set bg=dark"
-    set background=dark
+
     colorscheme gruvbox
+    set background=dark
+    let g:gruvbox_contrast_dark='hard'
+    let g:gruvbox_bold=1
+    let g:gruvbox_italic=1
+    let g:gruvbox_italicize_comments=1
+    let g:gruvbox_invert_tabline=1
+    let g:gruvbox_invert_indent_guides=1
+
     "darcula fix to hide the indents:
     "set nolist
 endfunction

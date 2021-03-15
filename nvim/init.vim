@@ -10,6 +10,7 @@
 " https://github.com/carlosd-ss/dotfiles
 " https://gist.github.com/benawad/b768f5a5bbd92c8baabd363b7e79786f
 " https://www.youtube.com/watch?v=gnupOrSEikQ
+" https://github.com/alexandreliberato/vim-modular
 
 
 source $HOME/.config/nvim/plugins.vim
